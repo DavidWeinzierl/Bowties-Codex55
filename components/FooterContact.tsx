@@ -26,8 +26,16 @@ export function FooterContact() {
   async function onSubmit(data: ContactFormData) {
     setServerState("sending");
     try {
-      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-      if (!response.ok) throw new Error("Send failed");
+      const emailTo = "booking@thebowties.at";
+      const subject = `Booking Enquiry: ${data.eventType} · ${data.eventDate}`;
+      const body = `Name: ${data.name}\nEmail: ${data.email}\nDate: ${data.eventDate}\nEvent: ${data.eventType}\n\nMessage:\n${data.message}`;
+
+      const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+
+      // Provide a brief delay for a premium loading state feel before success
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
       setServerState("success");
       reset();
     } catch {

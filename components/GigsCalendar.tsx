@@ -5,7 +5,41 @@ import { CalendarDays, MapPin } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
-import type { PublicGig } from "@/lib/calendar";
+export type PublicGig = {
+  id: string;
+  title: string;
+  location: string;
+  start: string;
+};
+
+// Helper to generate dynamic future dates for dummy gigs
+const getFutureDate = (daysAhead: number, hours: number) => {
+  const date = new Date();
+  date.setDate(date.getDate() + daysAhead);
+  date.setHours(hours, 0, 0, 0);
+  return date.toISOString();
+};
+
+const DUMMY_GIGS: PublicGig[] = [
+  {
+    id: "gig-1",
+    title: "Town Festival Open Air",
+    location: "Rathausplatz, Vienna",
+    start: getFutureDate(12, 19),
+  },
+  {
+    id: "gig-2",
+    title: "Club Showcase Night",
+    location: "U4 Club, Vienna",
+    start: getFutureDate(26, 21),
+  },
+  {
+    id: "gig-3",
+    title: "Old Town Summer Session",
+    location: "Residenzplatz, Salzburg",
+    start: getFutureDate(45, 18),
+  },
+];
 
 function formatGigDate(value: string) {
   const date = new Date(value);
@@ -19,21 +53,14 @@ function formatGigDate(value: string) {
 export function GigsCalendar() {
   const [gigs, setGigs] = useState<PublicGig[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [error] = useState(false);
 
   useEffect(() => {
-    const controller = new AbortController();
-    fetch("/api/calendar", { signal: controller.signal })
-      .then((response) => {
-        if (!response.ok) throw new Error("Calendar unavailable");
-        return response.json() as Promise<{ gigs: PublicGig[] }>;
-      })
-      .then((data) => setGigs(data.gigs))
-      .catch((requestError: Error) => {
-        if (requestError.name !== "AbortError") setError(true);
-      })
-      .finally(() => setLoading(false));
-    return () => controller.abort();
+    const timer = setTimeout(() => {
+      setGigs(DUMMY_GIGS);
+      setLoading(false);
+    }, 450);
+    return () => clearTimeout(timer);
   }, []);
 
   return (

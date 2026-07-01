@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  serverExternalPackages: ["node-ical"],
+  output: "export",
+  images: { unoptimized: true },
+  trailingSlash: true,
 };
 
 export default nextConfig;
