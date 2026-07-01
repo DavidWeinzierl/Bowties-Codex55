@@ -6,10 +6,12 @@ import { ArrowDownRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 
 export function Hero() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-ink" aria-labelledby="hero-title">
       <Image
-        src="/images/bowties-hero.jpg"
+        src={`${basePath}/images/bowties-hero.jpg`}
         alt="The Bowties performing live on an atmospheric event stage"
         fill
         priority
@@ -23,10 +25,10 @@ export function Hero() {
         loop
         playsInline
         preload="metadata"
-        poster="/images/bowties-hero.jpg"
+        poster={`${basePath}/images/bowties-hero.jpg`}
         aria-hidden="true"
       >
-        <source src="/media/bowties-hero-loop.mp4" type="video/mp4" />
+        <source src={`${basePath}/media/bowties-hero-loop.mp4`} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,18,18,.94)_0%,rgba(12,18,18,.7)_38%,rgba(12,18,18,.16)_75%),linear-gradient(0deg,rgba(12,18,18,.68)_0%,transparent_48%)]" />
       <div className="absolute inset-0 opacity-[.08] noise" />

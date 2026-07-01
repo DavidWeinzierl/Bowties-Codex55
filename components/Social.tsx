@@ -17,6 +17,7 @@ const reviews = [
 const crops = ["20% center", "38% center", "52% center", "65% center", "78% center", "92% center"];
 
 export function Social() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -56,7 +57,7 @@ export function Social() {
       <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3">
         {crops.map((position, index) => (
           <Reveal key={position} delay={index * 0.05} className="group relative aspect-square overflow-hidden rounded-xl bg-ink">
-            <Image src="/images/bowties-hero.jpg" alt={`The Bowties live moment ${index + 1}`} fill sizes="(max-width: 640px) 50vw, 33vw" className="scale-[1.55] object-cover transition duration-700 group-hover:scale-[1.68] group-hover:opacity-75" style={{ objectPosition: position }} />
+            <Image src={`${basePath}/images/bowties-hero.jpg`} alt={`The Bowties live moment ${index + 1}`} fill sizes="(max-width: 640px) 50vw, 33vw" className="scale-[1.55] object-cover transition duration-700 group-hover:scale-[1.68] group-hover:opacity-75" style={{ objectPosition: position }} />
             <span className="absolute inset-0 grid place-items-center bg-coral/0 text-white opacity-0 transition group-hover:bg-coral/20 group-hover:opacity-100"><Camera /></span>
           </Reveal>
         ))}

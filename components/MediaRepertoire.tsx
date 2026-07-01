@@ -16,6 +16,7 @@ const songs = [
 ] as const;
 
 export function MediaRepertoire() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -37,14 +38,14 @@ export function MediaRepertoire() {
           <video
             ref={videoRef}
             className="size-full object-cover"
-            poster="/images/bowties-hero.jpg"
+            poster={`${basePath}/images/bowties-hero.jpg`}
             playsInline
             preload="metadata"
             onPlay={() => setPlaying(true)}
             onPause={() => setPlaying(false)}
             aria-label="The Bowties showreel placeholder"
           >
-            <source src="/media/bowties-hero-loop.mp4" type="video/mp4" />
+            <source src={`${basePath}/media/bowties-hero-loop.mp4`} type="video/mp4" />
           </video>
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
           <button

@@ -4,6 +4,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { members } from "@/lib/data";
 
 export function Members() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <section className="section-shell bg-ink text-cream">
       <div className="page-grid items-end">
@@ -23,7 +25,7 @@ export function Members() {
             className={`group relative min-h-[21rem] overflow-hidden rounded-[1.5rem] bg-cream/5 md:col-span-2 lg:min-h-[34rem] ${index === 3 ? "md:col-start-2 lg:col-start-auto" : ""} ${index === 4 ? "col-span-2 md:col-span-2" : "lg:col-span-2"}`}
           >
             <Image
-              src="/images/bowties-hero.jpg"
+              src={`${basePath}/images/bowties-hero.jpg`}
               alt={`${member.name}, ${member.role}`}
               fill
               sizes="(max-width: 768px) 50vw, 20vw"
