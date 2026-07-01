@@ -1,0 +1,70 @@
+export const repertoire = [
+  {
+    genre: "60s Rock 'n' Roll",
+    eyebrow: "The originals",
+    description: "The songs that taught the world to dance.",
+    songs: [
+      ["Johnny B. Goode", "Chuck Berry"],
+      ["Twist and Shout", "The Beatles"],
+      ["Jailhouse Rock", "Elvis Presley"],
+      ["You Never Can Tell", "Chuck Berry"],
+      ["I'm a Believer", "The Monkees"],
+      ["Oh, Pretty Woman", "Roy Orbison"],
+      ["Do You Love Me", "The Contours"],
+      ["Suspicious Minds", "Elvis Presley"],
+    ],
+  },
+  {
+    genre: "80s Dance & Disco",
+    eyebrow: "All-night energy",
+    description: "Glittering hooks, bright synths, no empty dance floor.",
+    songs: [
+      ["You Spin Me Round", "Dead or Alive"],
+      ["Everybody Wants to Rule the World", "Tears for Fears"],
+      ["I Wanna Dance with Somebody", "Whitney Houston"],
+      ["Footloose", "Kenny Loggins"],
+      ["The Power of Love", "Huey Lewis & The News"],
+      ["Wake Me Up Before You Go-Go", "Wham!"],
+      ["Walking on Sunshine", "Katrina and the Waves"],
+      ["Maniac", "Michael Sembello"],
+    ],
+  },
+  {
+    genre: "Modern Hits",
+    eyebrow: "Right now",
+    description: "Songs your guests know before the first chorus lands.",
+    songs: [
+      ["As It Was", "Harry Styles"],
+      ["Don't Start Now", "Dua Lipa"],
+      ["Blinding Lights", "The Weeknd"],
+      ["Watermelon Sugar", "Harry Styles"],
+      ["Shut Up and Dance", "WALK THE MOON"],
+      ["Treasure", "Bruno Mars"],
+      ["Levitating", "Dua Lipa"],
+      ["Flowers", "Miley Cyrus"],
+    ],
+  },
+  {
+    genre: "Austropop",
+    eyebrow: "Made in Austria",
+    description: "Beloved homegrown classics, played with heart.",
+    songs: [
+      ["Fürstenfeld", "STS"],
+      ["Schifoan", "Wolfgang Ambros"],
+      ["Zwickt's mi", "Wolfgang Ambros"],
+      ["Macho Macho", "Rainhard Fendrich"],
+      ["Großvater", "STS"],
+      ["I am from Austria", "Rainhard Fendrich"],
+      ["Weus'd a Herz hast wia a Bergwerk", "Rainhard Fendrich"],
+      ["Rock Me Amadeus", "Falco"],
+    ],
+  },
+] as const;
+
+export const members = [
+  { name: "Philipp", role: "Guitar · Vocals · Keys", position: "42% center" },
+  { name: "Lena", role: "Vocals · Percussion", position: "60% center" },
+  { name: "Vlad", role: "Bass · Vocals", position: "84% center" },
+  { name: "Benedikt", role: "Drums", position: "75% center" },
+  { name: "David", role: "Guitar · Keys · Vocals", position: "38% center" },
+] as const;
